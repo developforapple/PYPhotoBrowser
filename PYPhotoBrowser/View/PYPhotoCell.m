@@ -67,7 +67,7 @@ NSString *const PYPhotoCellReuseIdentifier = @"PYPhotoViewCell";
         height = PYScreenW * self.photo.originalSize.width / self.photo.originalSize.height > PYScreenH ? PYScreenH : PYScreenW * self.photo.originalSize.width / self.photo.originalSize.height;
         width = PYScreenW;
     }
-    self.photoView.py_size = CGSizeMake(self.py_width, self.py_width * imageSize.height / imageSize.width);
+    self.photoView.py_size = CGSizeMake(self.py_width, imageSize.width == 0 ? self.py_width : (self.py_width * imageSize.height / imageSize.width));
     if (self.py_width > self.py_height) { // 横屏
         self.photoView.py_size = CGSizeMake(height, width);
     }
